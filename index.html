@@ -1,152 +1,93 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10111b">
-  <meta name="description" content="NEXORA — a modern social community concept.">
-  <title>NEXORA — Social, Reimagined</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samira Fashion - Premium Modest Wear</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+<style>body{font-family:'Hind Siliguri', sans-serif}</style>
 </head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#home" aria-label="Nexora home">
-        <span class="brand-mark">N</span><span>NEXORA</span>
-      </a>
-      <div class="side-label">WORKSPACE</div>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#home" data-view="home"><span class="nav-icon">⌂</span> Home <span class="nav-count">4</span></a>
-        <a class="nav-link" href="#explore" data-view="explore"><span class="nav-icon">⌕</span> Explore</a>
-        <a class="nav-link" href="#videos" data-view="videos"><span class="nav-icon">▷</span> Videos</a>
-        <a class="nav-link" href="#messages" data-view="messages"><span class="nav-icon">▤</span> Messages <span class="unread-dot"></span></a>
-        <a class="nav-link" href="#saved" data-view="saved"><span class="nav-icon">♡</span> Saved</a>
-      </nav>
-      <div class="side-label community-label">YOUR COMMUNITY</div>
-      <div class="community-list">
-        <a href="#design" class="community"><span class="community-avatar purple">✳</span> Design Circle</a>
-        <a href="#creators" class="community"><span class="community-avatar orange">◉</span> Creators Hub</a>
-        <a href="#tech" class="community"><span class="community-avatar green">⌘</span> Tech Talks</a>
-      </div>
-      <div class="sidebar-bottom">
-        <div class="upgrade-card">
-          <div class="upgrade-icon">✦</div>
-          <strong>Make more happen.</strong>
-          <p>Your next big idea starts with a community.</p>
-          <a href="#projects">Explore projects <span>↗</span></a>
-        </div>
-        <a class="profile-mini" href="#about">
-          <div class="avatar avatar-me">J</div>
-          <div><strong>Jackson</strong><small>Personal profile</small></div>
-          <span class="more">···</span>
-        </a>
-      </div>
-    </aside>
-
-    <main class="main-content" id="home">
-      <header class="topbar">
-        <button class="icon-button menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-        <div class="breadcrumb">Workspace <span>/</span> <strong id="pageTitle">Home feed</strong></div>
-        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search people, posts..." aria-label="Search posts"></label>
-        <button class="icon-button notification-button" aria-label="Notifications">♧<i></i></button>
-        <div class="avatar avatar-me top-avatar">J</div>
-      </header>
-
-      <div class="page-layout">
-        <section class="feed-column">
-          <section class="welcome-row">
-            <div>
-              <p class="eyebrow"><span class="live-dot"></span> YOUR DIGITAL COMMUNITY</p>
-              <h1>Good morning, Jackson <span class="wave">✦</span></h1>
-              <p class="muted">A little inspiration can go a long way. See what's happening.</p>
-            </div>
-            <button class="primary-button" id="jumpToComposer">＋ Create post</button>
-          </section>
-
-          <section class="stories-section" aria-label="Stories">
-            <div class="section-heading"><h2>Stories</h2><a href="#stories">View all <span>↗</span></a></div>
-            <div class="stories">
-              <button class="story add-story" id="addStory"><span class="story-ring"><span>＋</span></span><span>Your story</span></button>
-              <button class="story"><span class="story-ring ring-pink"><span class="story-person">AM</span></span><span>Amelia</span></button>
-              <button class="story"><span class="story-ring ring-blue"><span class="story-person">RK</span></span><span>Raihan</span></button>
-              <button class="story"><span class="story-ring ring-orange"><span class="story-person">SL</span></span><span>Sophia</span></button>
-              <button class="story"><span class="story-ring ring-green"><span class="story-person">JD</span></span><span>James</span></button>
-              <button class="story"><span class="story-ring ring-purple"><span class="story-person">MK</span></span><span>Mika</span></button>
-            </div>
-          </section>
-
-          <section class="composer card" id="composer">
-            <div class="composer-top"><div class="avatar avatar-me">J</div><button class="composer-prompt" id="focusPost">What's on your mind, Jackson?</button></div>
-            <textarea id="postText" rows="2" maxlength="500" placeholder="Share an idea with your community..."></textarea>
-            <div class="composer-bottom">
-              <div class="composer-tools"><button class="tool-button" id="photoTool">▧ <span>Photo</span></button><button class="tool-button" id="videoTool">▷ <span>Video</span></button><button class="tool-button" id="moodTool">☻ <span>Feeling</span></button></div>
-              <button class="primary-button post-button" id="publishPost">Publish ↗</button>
-            </div>
-            <p class="form-hint" id="composerHint" aria-live="polite"></p>
-          </section>
-
-          <div class="feed-heading"><h2>For you <span class="sparkle">✦</span></h2><button class="filter-button" id="sortButton">Latest⌄</button></div>
-          <div id="feedPosts">
-            <article class="post card" data-search="amelia rose design creativity workspace minimal">
-              <div class="post-header">
-                <div class="avatar avatar-pink">AR</div><div class="post-author"><strong>Amelia Rose <span class="verified">✓</span></strong><small>Product Designer · 24 min ago</small></div><button class="dots-button" aria-label="More post options">···</button>
-              </div>
-              <p class="post-copy">A little reminder that great design isn't just how something looks — it's how it makes people <strong>feel.</strong> ✨ Been exploring a calmer, more intentional workspace lately.</p>
-              <div class="post-art design-art"><div class="art-glow"></div><div class="art-caption"><span>DESIGN NOTES / 001</span><strong>Less noise.<br>More meaning.</strong><small>Ideas for a more intentional digital life.</small></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-sphere"></div><span class="art-brand">AR®</span></div>
-              <div class="post-stats"><span class="likes-count">♡ 248 likes</span><span>32 comments · 18 shares</span></div>
-              <div class="post-actions"><button class="like-button">♡ <span>Like</span></button><button class="comment-button">▱ <span>Comment</span></button><button class="share-button">↗ <span>Share</span></button></div>
-              <div class="comment-area"><input type="text" placeholder="Write a thoughtful comment..." aria-label="Write a comment"><button class="send-comment">Send</button></div>
-            </article>
-
-            <article class="post card" data-search="raihan ahmed photography travel coast ocean">
-              <div class="post-header">
-                <div class="avatar avatar-blue">RA</div><div class="post-author"><strong>Raihan Ahmed <span class="verified">✓</span></strong><small>Photographer · 1 hr ago</small></div><button class="dots-button" aria-label="More post options">···</button>
-              </div>
-              <p class="post-copy">Somewhere between the ocean and the sky, everything feels a little simpler. 🌊</p>
-              <div class="photo-art" role="img" aria-label="Stylized ocean and sunset landscape"><div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div><div class="ocean"></div><div class="water-line"></div><span>COASTLINES · 06:14 AM</span></div>
-              <div class="post-stats"><span class="likes-count">♡ 512 likes</span><span>47 comments · 29 shares</span></div>
-              <div class="post-actions"><button class="like-button">♡ <span>Like</span></button><button class="comment-button">▱ <span>Comment</span></button><button class="share-button">↗ <span>Share</span></button></div>
-              <div class="comment-area"><input type="text" placeholder="Write a thoughtful comment..." aria-label="Write a comment"><button class="send-comment">Send</button></div>
-            </article>
-            <div class="empty-state" id="emptyState" hidden>No posts found. Try another search.</div>
-          </div>
-        </section>
-
-        <aside class="right-column">
-          <section class="card profile-card" id="about">
-            <div class="profile-cover"><span>N</span></div>
-            <div class="profile-details"><div class="avatar avatar-me profile-large">J</div><button class="edit-profile" id="editProfile">Edit profile</button><h3>Jackson</h3><p class="muted">@jacksoncreates</p><p class="bio">Building ideas, exploring design, and connecting with curious minds. ✦</p>
-              <div class="profile-stats"><div><strong>128</strong><small>Following</small></div><div><strong>2.4k</strong><small>Followers</small></div><div><strong>36</strong><small>Posts</small></div></div>
-            </div>
-          </section>
-
-          <section class="card trends-card" id="explore"><div class="section-heading"><h2>Trending topics</h2><a href="#explore">See all ↗</a></div>
-            <a class="trend" href="#design"><small>DESIGN · TRENDING</small><strong>#CreativeProcess</strong><span>2.8k posts <b>↗</b></span></a>
-            <a class="trend" href="#tech"><small>TECHNOLOGY · POPULAR</small><strong>#BuildInPublic</strong><span>1.6k posts <b>↗</b></span></a>
-            <a class="trend" href="#creators"><small>COMMUNITY · NEW</small><strong>#CreatorEconomy</strong><span>940 posts <b>↗</b></span></a>
-          </section>
-
-          <section class="card people-card"><div class="section-heading"><h2>People to follow</h2><a href="#people">See all ↗</a></div>
-            <div class="person-row"><div class="avatar avatar-orange">SL</div><div class="person-info"><strong>Sophia Lee <span class="verified">✓</span></strong><small>Illustrator</small></div><button class="follow-button">Follow</button></div>
-            <div class="person-row"><div class="avatar avatar-green">JD</div><div class="person-info"><strong>James Dean</strong><small>Developer</small></div><button class="follow-button">Follow</button></div>
-            <div class="person-row"><div class="avatar avatar-purple">MK</div><div class="person-info"><strong>Mika Khan</strong><small>Content creator</small></div><button class="follow-button">Follow</button></div>
-          </section>
-          <section class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a><span>© 2026 NEXORA</span></section>
-        </aside>
-      </div>
-
-      <section class="portfolio-section" id="projects">
-        <p class="eyebrow">BUILT WITH PURPOSE</p><h2>A little more about what I do.</h2><p class="muted portfolio-intro">NEXORA is a social platform concept and a portfolio project. Here are a few areas I'm passionate about.</p>
-        <div class="project-grid"><article class="project-card"><span class="project-icon">✳</span><h3>Social Experiences</h3><p>Creating thoughtful spaces for people to share ideas and connect.</p><span class="project-tag">UI / UX DESIGN</span></article><article class="project-card"><span class="project-icon">⌘</span><h3>Web Development</h3><p>Building responsive, accessible interfaces with clean front-end code.</p><span class="project-tag">HTML · CSS · JS</span></article><article class="project-card"><span class="project-icon">▷</span><h3>Creator Tools</h3><p>Exploring new ways for creators to publish and grow their audience.</p><span class="project-tag">PRODUCT THINKING</span></article></div>
-      </section>
-      <section class="contact-section" id="contact"><div><p class="eyebrow">LET'S CONNECT</p><h2>Have an idea in mind?</h2><p class="muted">I'd love to hear about your next project or collaboration.</p></div><a class="primary-button contact-button" href="mailto:hello@example.com">Get in touch ↗</a></section>
-      <footer class="main-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">N</span><span>NEXORA</span></a><span>Made for meaningful connections.</span><a href="#home">Back to top ↑</a></footer>
-    </main>
+<body class="bg-white text-gray-900">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <h1 class="text-2xl font-bold tracking-widest">SAMIRA FASHION</h1>
+    <div class="flex gap-4 items-center">
+      <input id="searchInput" placeholder="Search..." class="border px-3 py-1.5 rounded-full text-sm w-32 md:w-64">
+      <button id="cartBtn" class="relative">🛒 <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-[10px] px-1.5 rounded-full">0</span></button>
+    </div>
   </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
+</header>
+<section class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
+  <div>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Premium Borka &<br>Three-Piece Collection</h2>
+    <p class="mt-3 text-gray-600">Moulvibazar er sobcheye premium modest fashion. Cash on Delivery all Bangladesh.</p>
+    <a href="#shop" class="mt-5 inline-block bg-black text-white px-6 py-3 rounded-full">Shop Now</a>
+  </div>
+  <div class="bg-gray-100 rounded-3xl h-[350px] flex items-center justify-center">Banner Image</div>
+</section>
+<section class="max-w-7xl mx-auto px-4">
+  <div class="flex gap-3 overflow-auto pb-2">
+    <button onclick="filterCat('all')" class="bg-black text-white px-5 py-2 rounded-full text-sm">All</button>
+    <button onclick="filterCat('borka')" class="border px-5 py-2 rounded-full text-sm">Borka</button>
+    <button onclick="filterCat('three-piece')" class="border px-5 py-2 rounded-full text-sm">Three-Piece</button>
+    <button onclick="filterCat('jama')" class="border px-5 py-2 rounded-full text-sm">Jama</button>
+  </div>
+</section>
+<section id="shop" class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="border rounded-2xl p-3">
+    <div class="bg-gray-100 h-48 rounded-xl"></div>
+    <h3 class="mt-2 font-semibold">Premium Borka</h3>
+    <p class="text-sm">৳ 1850</p>
+    <button onclick="openOrder()" class="mt-2 w-full bg-black text-white py-2 rounded-full text-sm">Order Now</button>
+  </div>
+</section>
+<div id="orderModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
+  <div class="bg-white rounded-2xl max-w-md w-full p-6">
+    <h3 class="font-bold text-lg">Order Confirm korun</h3>
+    <input id="cName" placeholder="Apnar Nam" class="w-full border mt-3 p-2 rounded">
+    <input id="cPhone" placeholder="Phone Number" class="w-full border mt-2 p-2 rounded">
+    <input id="cAddress" placeholder="Full Address" class="w-full border mt-2 p-2 rounded">
+    <p class="text-xs mt-2">Order No: <span id="orderNo"></span></p>
+    <div class="flex gap-2 mt-4">
+      <button onclick="placeOrder()" class="flex-1 bg-black text-white py-2.5 rounded-full">Confirm Order</button>
+      <button onclick="orderViaWhatsApp()" class="flex-1 border border-green-600 text-green-600 py-2.5 rounded-full">WhatsApp</button>
+    </div>
+    <button onclick="closeModal()" class="w-full mt-2 text-sm text-gray-500">Cancel</button>
+  </div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "PASTE_HERE",
+  authDomain: "samira-fashion.firebaseapp.com",
+  projectId: "samira-fashion",
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+let orderId = 'SAM-' + Math.floor(1000 + Math.random()*9000);
+document.getElementById('orderNo').innerText = orderId;
+window.openOrder = () => { document.getElementById('orderModal').classList.remove('hidden'); document.getElementById('orderModal').classList.add('flex'); }
+window.closeModal = () => { document.getElementById('orderModal').classList.add('hidden'); }
+window.placeOrder = async () => {
+  const data = {
+    orderNo: orderId,
+    name: document.getElementById('cName').value,
+    phone: document.getElementById('cPhone').value,
+    address: document.getElementById('cAddress').value,
+    status: 'Pending',
+    time: new Date()
+  };
+  await addDoc(collection(db, "orders"), data);
+  alert('Order Success! ' + orderId);
+  closeModal();
+}
+window.orderViaWhatsApp = () => {
+  let text = `Assalamu Alaikum Samira Fashion! Order No: ${orderId} %0ANam: ${document.getElementById('cName').value} %0APhone: ${document.getElementById('cPhone').value}`;
+  window.open(`https://wa.me/8801XXXXXXXXX?text=${text}`, '_blank');
+}
+window.filterCat = (cat) => { console.log(cat) }
+</script>
 </body>
 </html>
