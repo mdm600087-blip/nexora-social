@@ -3,91 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samira Fashion - Premium Modest Wear</title>
+<title>Samira Fashion - Admin</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
-<style>body{font-family:'Hind Siliguri', sans-serif}</style>
 </head>
-<body class="bg-white text-gray-900">
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-    <h1 class="text-2xl font-bold tracking-widest">SAMIRA FASHION</h1>
-    <div class="flex gap-4 items-center">
-      <input id="searchInput" placeholder="Search..." class="border px-3 py-1.5 rounded-full text-sm w-32 md:w-64">
-      <button id="cartBtn" class="relative">🛒 <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-[10px] px-1.5 rounded-full">0</span></button>
-    </div>
-  </div>
-</header>
-<section class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
-  <div>
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Premium Borka &<br>Three-Piece Collection</h2>
-    <p class="mt-3 text-gray-600">Moulvibazar er sobcheye premium modest fashion. Cash on Delivery all Bangladesh.</p>
-    <a href="#shop" class="mt-5 inline-block bg-black text-white px-6 py-3 rounded-full">Shop Now</a>
-  </div>
-  <div class="bg-gray-100 rounded-3xl h-[350px] flex items-center justify-center">Banner Image</div>
-</section>
-<section class="max-w-7xl mx-auto px-4">
-  <div class="flex gap-3 overflow-auto pb-2">
-    <button onclick="filterCat('all')" class="bg-black text-white px-5 py-2 rounded-full text-sm">All</button>
-    <button onclick="filterCat('borka')" class="border px-5 py-2 rounded-full text-sm">Borka</button>
-    <button onclick="filterCat('three-piece')" class="border px-5 py-2 rounded-full text-sm">Three-Piece</button>
-    <button onclick="filterCat('jama')" class="border px-5 py-2 rounded-full text-sm">Jama</button>
-  </div>
-</section>
-<section id="shop" class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-  <div class="border rounded-2xl p-3">
-    <div class="bg-gray-100 h-48 rounded-xl"></div>
-    <h3 class="mt-2 font-semibold">Premium Borka</h3>
-    <p class="text-sm">৳ 1850</p>
-    <button onclick="openOrder()" class="mt-2 w-full bg-black text-white py-2 rounded-full text-sm">Order Now</button>
-  </div>
-</section>
-<div id="orderModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
-  <div class="bg-white rounded-2xl max-w-md w-full p-6">
-    <h3 class="font-bold text-lg">Order Confirm korun</h3>
-    <input id="cName" placeholder="Apnar Nam" class="w-full border mt-3 p-2 rounded">
-    <input id="cPhone" placeholder="Phone Number" class="w-full border mt-2 p-2 rounded">
-    <input id="cAddress" placeholder="Full Address" class="w-full border mt-2 p-2 rounded">
-    <p class="text-xs mt-2">Order No: <span id="orderNo"></span></p>
-    <div class="flex gap-2 mt-4">
-      <button onclick="placeOrder()" class="flex-1 bg-black text-white py-2.5 rounded-full">Confirm Order</button>
-      <button onclick="orderViaWhatsApp()" class="flex-1 border border-green-600 text-green-600 py-2.5 rounded-full">WhatsApp</button>
-    </div>
-    <button onclick="closeModal()" class="w-full mt-2 text-sm text-gray-500">Cancel</button>
-  </div>
+<body class="bg-gray-100 p-4">
+<div class="max-w-3xl mx-auto">
+<h1 class="text-2xl font-bold">Samira Fashion - Admin Panel</h1>
+<p class="text-sm text-gray-600 mt-1">Order gulo WhatsApp e jabe. Ekhane sudhu product manage korben.</p>
+
+<div class="bg-white p-4 rounded-2xl mt-6">
+<h2 class="font-bold">New Product Add</h2>
+<input id="pName" placeholder="Product Name (ex: Black Borka)" class="border w-full mt-3 p-2 rounded">
+<input id="pPrice" placeholder="Price (ex: 1850)" type="number" class="border w-full mt-2 p-2 rounded">
+<select id="pCat" class="border w-full mt-2 p-2 rounded">
+<option value="borka">Borka</option>
+<option value="three-piece">Three-Piece</option>
+<option value="jama">Jama</option>
+</select>
+<input id="pImg" placeholder="Chobir Link (na dileo hobe)" class="border w-full mt-2 p-2 rounded">
+<button onclick="addProduct()" class="bg-black text-white w-full py-2.5 rounded-full mt-3">Add Product</button>
 </div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "PASTE_HERE",
-  authDomain: "samira-fashion.firebaseapp.com",
-  projectId: "samira-fashion",
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-let orderId = 'SAM-' + Math.floor(1000 + Math.random()*9000);
-document.getElementById('orderNo').innerText = orderId;
-window.openOrder = () => { document.getElementById('orderModal').classList.remove('hidden'); document.getElementById('orderModal').classList.add('flex'); }
-window.closeModal = () => { document.getElementById('orderModal').classList.add('hidden'); }
-window.placeOrder = async () => {
-  const data = {
-    orderNo: orderId,
-    name: document.getElementById('cName').value,
-    phone: document.getElementById('cPhone').value,
-    address: document.getElementById('cAddress').value,
-    status: 'Pending',
-    time: new Date()
-  };
-  await addDoc(collection(db, "orders"), data);
-  alert('Order Success! ' + orderId);
-  closeModal();
+
+<div id="list" class="mt-6 grid gap-3"></div>
+
+<script>
+let products = JSON.parse(localStorage.getItem('samira_products')) || [
+{name:"Black Premium Borka", price:1850, cat:"borka"},
+{name:"Cotton Three-Piece", price:1450, cat:"three-piece"},
+]
+
+function render(){
+let h="";
+products.forEach((p,i)=>{
+h+=`<div class="bg-white p-3 rounded-xl flex justify-between"><div><b>${p.name}</b><br><small>৳ ${p.price} - ${p.cat}</small></div><button onclick="del(${i})" class="text-red-600 text-sm">Delete</button></div>`
+})
+document.getElementById('list').innerHTML=h;
 }
-window.orderViaWhatsApp = () => {
-  let text = `Assalamu Alaikum Samira Fashion! Order No: ${orderId} %0ANam: ${document.getElementById('cName').value} %0APhone: ${document.getElementById('cPhone').value}`;
-  window.open(`https://wa.me/8801XXXXXXXXX?text=${text}`, '_blank');
+window.addProduct=()=>{
+let name=document.getElementById('pName').value;
+let price=document.getElementById('pPrice').value;
+let cat=document.getElementById('pCat').value;
+if(!name || !price){alert("Name Price din"); return;}
+products.push({name, price, cat});
+localStorage.setItem('samira_products', JSON.stringify(products));
+render();
+alert("Product Add Hoise! Ekhon index.html e auto show korbe na, manually index.html er code eo add korte hobe.");
 }
-window.filterCat = (cat) => { console.log(cat) }
+window.del=(i)=>{
+products.splice(i,1);
+localStorage.setItem('samira_products', JSON.stringify(products));
+render();
+}
+render();
 </script>
+</div>
 </body>
 </html>
